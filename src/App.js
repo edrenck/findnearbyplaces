@@ -1,13 +1,22 @@
-import logo from "./logo.svg";
 import "./App.css";
+import Login from "./components/login";
+import Places from "./components/places";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Container } from "react-bootstrap";
+import Layout from "./components/layout";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Find Nearby Places</h1>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Container>
+        <Layout />
+        <Routes>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="place/:place" element={<Places />}></Route>
+          <Route path="/home" element={<h1>Home Page</h1>}></Route>
+        </Routes>
+      </Container>
+    </BrowserRouter>
   );
 }
 
